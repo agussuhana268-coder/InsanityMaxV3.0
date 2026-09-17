@@ -1012,8 +1012,8 @@ input{
 
     <!-- Section 2: Category Filter Bar -->
     <div class="deck-label">
-      <span>Combat Modules</span>
-      <span style="color:var(--text-muted);font-size:8.5px;" id="featCounter">0 OF 10 ARMED</span>
+      <span>Modules</span>
+      <span style="color:var(--text-muted);font-size:8.5px;" id="featCounter">0 OF 10 MODULE</span>
     </div>
     <div class="cat-nav">
       <button class="cat-tab active" onclick="filterCat('all',this)">All (10)</button>
@@ -1227,7 +1227,7 @@ var FEATS=[
   {id:'saim',  cat:'aim',  name:'Smooth Aim',        desc:'Natural interpolation for stealth aim alignment',          badge:'SMOOTH', on:false, lib:'libil2cpp.so', sym:'AimController::UpdateAimSmoothing',        off:'0x5B72AC', patch:'smooth_speed=0.04f lerp_override=true curve=EASE_OUT'},
   {id:'ahead', cat:'aim',  name:'AimHead Settings',  desc:'Target weight bias focused on head vector points',          badge:'AIM',    on:false, lib:'libil2cpp.so', sym:'AimSystem::SetHeadTargetConfig',           off:'0x5C1E50', patch:'head_target_weight=1.0f hitzone_override=HEAD'},
   {id:'recoil',cat:'sens', name:'Optimize Recoil',   desc:'Dampen weapon kickback spread pattern across all rifles',   badge:'RECOIL', on:false, lib:'libil2cpp.so', sym:'WeaponRecoilComponent::CalculateRecoil',   off:'0x7A5088', patch:'recoil_x=0.0f recoil_y=0.0f kick_scale=0'},
-  {id:'hlock', cat:'aim',  name:'Headlock 55%',      desc:'Semi-lock aim ratio within 8-degree FOV perimeter',         badge:'LOCK',   on:false, lib:'libil2cpp.so', sym:'AimLockSystem::SetHeadlockRatio',          off:'0x7F4430', patch:'headlock_ratio=0.55f snap_threshold=8deg'},
+  {id:'hlock', cat:'aim',  name:'Headlock 45%',      desc:'Semi-lock aim ratio within 8-degree FOV perimeter',         badge:'LOCK',   on:false, lib:'libil2cpp.so', sym:'AimLockSystem::SetHeadlockRatio',          off:'0x7F4430', patch:'headlock_ratio=0.55f snap_threshold=8deg'},
   {id:'bypass',cat:'sys',  name:'Bypass Protection', desc:'Shield against server-side behavioral telemetry checks',   badge:'BYPASS', on:false, lib:'libmain.so',   sym:'IntegrityChecker::ValidateSession',         off:'0x1A3208', patch:'nop(3)@validate_session hwid_spoof=9B:2E:77'},
   {id:'cache', cat:'sys',  name:'Cache Cleaner',     desc:'Flush shader cache & temporary game session dumps',         badge:'CLEAN',  on:false, lib:'filesystem',   sym:'/data/data/[pkg]/cache/',                   off:'N/A',      patch:'rm -rf cache/* dalvik-cache/* code_cache/*'},
 ];

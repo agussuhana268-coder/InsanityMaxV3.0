@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="theme-color" content="#05050b"/>
+<title>INSANITY MAX V3.0 — MDZZXITERS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Oxanium:wght@500;600;700;800&family=Share+Tech+Mono&family=Black+Ops+One&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════
+   INSANITY MAX V3.0 · REFINED EXECUTIVE GAMING DESIGN
+   Clean · Sophisticated · High-Impact · Understated Luxury
+   ══════════════════════════════════════════════════════════ */
+*,*::before,*::after{
+  box-sizing:border-box;margin:0;padding:0;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  user-select:none;
+}
+:root{
+  --bg:#05050b;
+  --panel:rgba(13,13,24,.88);
+  --panel-solid:#0d0d18;
+  --card:rgba(18,18,32,.75);
+  --card-hover:rgba(24,24,42,.85);
+  --card-active:rgba(28,14,18,.9);
+  --border:rgba(255,255,255,.07);
+  --border-focus:rgba(224,24,24,.4);
+  --red:#e01818;
+  --red-light:#ff3333;
+  --red-deep:#990000;
+  --red-soft:rgba(224,24,24,.1);
+  --red-glow:rgba(224,24,24,.25);
+  --orange:#ff7a00;
+  --green:#20c04f;
+  --green-soft:rgba(32,192,79,.12);
+  --text-main:#f2f2f8;
+  --text-sub:#8e8ea6;
+  --text-muted:#505068;
+  --font-hud:'Oxanium',sans-serif;
+  --font-body:'Plus Jakarta Sans',sans-serif;
+  --font-mono:'Share Tech Mono',monospace;
+}
+
+html,body{
+  width:100%;height:100%;
+  overflow:hidden;
+  background:var(--bg);
+  color:var(--text-main);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Subtle ambient depth */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(224,24,24,.09) 0%,transparent 55%),
+    radial-gradient(circle at 85% 100%,rgba(224,24,24,.05) 0%,transparent 45%);
+}
+
+input{
+  -webkit-user-select:text!important;
+  user-select:text!important;
+}
+
+/* Canvas background */
+#cv{position:fixed;inset:0;z-index:1;pointer-events:none;}
+
+/* Refined CRT Scanlines */
+.scanlines{
+  position:fixed;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,.22) 50%);
+  background-size:100% 3px;
+  opacity:.45;
+}
+
+/* Screens */
+.scr{
+  position:fixed;inset:0;z-index:10;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .38s cubic-bezier(.16,1,.3,1),transform .38s cubic-bezier(.16,1,.3,1);
+}
+.scr.on{opacity:1;pointer-events:all;}
+.scr.out{opacity:0;transform:scale(.97) translateY(8px);}
+
+/* ══════════════════════════════════════════════════════════
+   SPLASH SCREEN (CLEAN & MEMORABLE)
+   ══════════════════════════════════════════════════════════ */
+#sp{
+  flex-direction:column;
+  z-index:100;
+}
+.sp-wrap{
+  display:flex;flex-direction:column;
+  align-items:center;
+  padding:36px 24px;
+  width:100%;max-width:360px;
+  position:relative;
+}
+
+/* Clean Orbital Reactor */
+.logo-stage{
+  position:relative;
+  width:160px;height:160px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:24px;
+}
+.lo-halo{
+  position:absolute;width:158px;height:158px;
+  border-radius:50%;
+  border:1px solid rgba(224,24,24,.12);
+  box-shadow:0 0 24px rgba(224,24,24,.06) inset;
+}
+.lo-track.t1{
+  position:absolute;width:138px;height:138px;
+  border-radius:50%;border:1px dashed rgba(224,24,24,.18);
+  animation:rspin 30s linear infinite;
+}
+.lo-track.t2{
+  position:absolute;width:108px;height:108px;
+  border-radius:50%;border:1px solid rgba(255,255,255,.05);
+}
+
+.lo-comet{
+  position:absolute;border-radius:50%;
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2.5px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2.5px));
+}
+.lo-comet.c1{
+  width:138px;height:138px;
+  background:conic-gradient(from 0deg,transparent 0%,transparent 65%,rgba(224,24,24,.1) 75%,#ff3333 88%,#fff 90%,#ff3333 92%,transparent 100%);
+  animation:rspin 3s linear infinite;
+  filter:drop-shadow(0 0 6px rgba(224,24,24,.6));
+}
+.lo-comet.c2{
+  width:108px;height:108px;
+  background:conic-gradient(from 180deg,transparent 0%,transparent 70%,rgba(224,24,24,.2) 82%,#ff4d4d 90%,transparent 100%);
+  animation:rspin 4.5s linear infinite reverse;
+}
+
+@keyframes rspin{to{transform:rotate(360deg);}}
+
+.lo-dia-arm{
+  position:absolute;width:138px;height:138px;
+  animation:rspin 7s linear infinite;
+}
+.lo-diamond{
+  position:absolute;top:-5px;left:50%;
+  width:10px;height:10px;
+  background:#ff2828;
+  transform:translateX(-50%) rotate(45deg);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:0 0 10px #ff2828;
+}
+.lo-cross-arm{
+  position:absolute;width:108px;height:108px;
+  animation:rspin 5s linear infinite reverse;
+}
+.lo-cross{
+  position:absolute;top:-4px;left:50%;transform:translateX(-50%);
+  width:8px;height:8px;
+}
+.lo-cross::before,.lo-cross::after{
+  content:'';position:absolute;background:#ff4d4d;
+}
+.lo-cross::before{width:8px;height:2px;top:3px;left:0;}
+.lo-cross::after{width:2px;height:8px;top:0;left:3px;}
+
+.lo-badge{
+  position:relative;z-index:5;
+  width:72px;height:72px;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle,#180306 0%,#080205 100%);
+  border-radius:50%;
+  border:1.5px solid rgba(224,24,24,.4);
+  box-shadow:0 0 20px rgba(224,24,24,.35),inset 0 0 12px rgba(224,24,24,.25);
+}
+.lo-M{
+  font-family:'Black Ops One',cursive;
+  font-size:46px;
+  color:#ff2828;
+  line-height:1;
+  text-shadow:0 0 14px rgba(224,24,24,.75);
+}
+
+.sp-name{
+  font-family:var(--font-hud);font-size:17px;font-weight:800;
+  letter-spacing:3px;color:#fff;
+  margin-bottom:2px;
+}
+.sp-sub{
+  font-family:var(--font-hud);font-size:12px;font-weight:700;
+  letter-spacing:4px;color:var(--red-light);
+  margin-bottom:10px;
+}
+.sp-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 10px;border-radius:20px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  font-family:var(--font-mono);font-size:9.5px;color:var(--text-sub);
+  margin-bottom:34px;letter-spacing:1px;
+}
+.sp-badge .dot{
+  width:5px;height:5px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 6px var(--green);
+}
+
+/* Loader */
+.sp-loader{width:240px;}
+.sp-track{
+  width:100%;height:3px;
+  background:rgba(255,255,255,.06);
+  border-radius:3px;overflow:hidden;
+  position:relative;margin-bottom:12px;
+}
+.sp-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,#990000,#e01818,#ff4d4d);
+  border-radius:3px;
+  box-shadow:0 0 10px rgba(224,24,24,.6);
+}
+.sp-shim{display:none;}
+.sp-meta{
+  display:flex;justify-content:space-between;
+  font-family:var(--font-mono);font-size:10px;color:var(--text-sub);
+}
+#sp-pct{color:var(--red-light);font-weight:bold;}
+
+/* ══════════════════════════════════════════════════════════
+   LOGIN SCREEN (REFINED LAYOUT)
+   ══════════════════════════════════════════════════════════ */
+#lg{
+  z-index:20;
+  overflow-y:auto;
+  padding:40px 18px;
+}
+.lg-wrap{
+  width:100%;max-width:360px;
+  margin:auto;
+  display:flex;flex-direction:column;gap:18px;
+}
+
+/* Brand header */
+.lg-hd{
+  display:flex;align-items:center;gap:12px;
+  padding:0 4px;margin-bottom:4px;
+}
+.lg-hd-ico{
+  width:42px;height:42px;flex-shrink:0;
+  border-radius:12px;
+  background:linear-gradient(135deg,#1c0205,#0a0205);
+  border:1.5px solid rgba(224,24,24,.4);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 16px rgba(224,24,24,.25);
+}
+.lg-hd-M{
+  font-family:'Black Ops One',cursive;
+  font-size:22px;color:#ff2828;line-height:1;
+}
+.lg-brand{
+  font-family:var(--font-hud);font-size:15px;font-weight:800;
+  letter-spacing:1.5px;color:#fff;
+}
+.lg-ver{
+  font-family:var(--font-body);font-size:10.5px;color:var(--text-sub);
+  letter-spacing:1px;font-weight:500;
+}
+
+/* Sleek Auth Card */
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;overflow:hidden;
+  backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  box-shadow:0 18px 45px rgba(0,0,0,.6);
+  position:relative;
+}
+.card-hd{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;
+  border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,.015);
+}
+.card-hd-left{display:flex;align-items:center;gap:8px;}
+.card-ti{
+  font-family:var(--font-mono);font-size:10.5px;
+  letter-spacing:1px;color:var(--text-sub);font-weight:600;
+}
+.sec-pill{
+  font-family:var(--font-mono);font-size:8.5px;
+  color:var(--green);background:var(--green-soft);
+  padding:2px 7px;border-radius:10px;font-weight:600;
+  display:flex;align-items:center;gap:4px;
+}
+.sec-pill::before{
+  content:'';width:4px;height:4px;border-radius:50%;background:var(--green);
+}
+
+.lg-body{
+  padding:26px 20px 24px;
+  display:flex;flex-direction:column;
+  gap:16px;
+}
+.key-stage{
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:2px;
+}
+.kw{display:none;}
+.key-ico{
+  width:40px;height:40px;
+  filter:drop-shadow(0 0 10px rgba(224,24,24,.4));
+}
+
+.inp-lbl{
+  font-family:var(--font-body);font-size:11px;font-weight:600;
+  color:var(--text-sub);letter-spacing:.5px;
+}
+.inp-row{width:100%;position:relative;}
+.inp{
+  width:100%;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;
+  padding:14px 44px 14px 14px;
+  color:#fff;
+  font-family:var(--font-mono);font-size:14px;letter-spacing:1px;
+  outline:none;
+  transition:border-color .2s,box-shadow .2s;
+  caret-color:var(--red-light);
+  -webkit-appearance:none;appearance:none;
+}
+.inp::placeholder{color:var(--text-muted);font-size:12px;}
+.inp:focus{
+  border-color:var(--red);
+  box-shadow:0 0 0 3px rgba(224,24,24,.12);
+}
+.eye-btn{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--text-muted);
+  cursor:pointer;padding:6px;display:flex;align-items:center;
+  transition:color .2s;
+}
+.eye-btn:hover{color:var(--text-main);}
+.eye-btn svg{width:17px;height:17px;}
+
+/* Verify Button */
+.btn-vfy{
+  width:100%;padding:14px;
+  background:linear-gradient(180deg,#d31212 0%,#9e0b0b 100%);
+  border:1px solid rgba(255,255,255,.15);border-radius:12px;
+  color:#fff;font-family:var(--font-hud);font-size:11.5px;font-weight:700;
+  letter-spacing:2px;cursor:pointer;
+  transition:transform .12s,filter .15s;
+  box-shadow:0 6px 20px rgba(224,24,24,.3);
+}
+.btn-vfy:active{transform:scale(.98);filter:brightness(.9);}
+
+.fb{
+  width:100%;padding:11px 14px;border-radius:10px;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.5px;
+  text-align:center;animation:fbin .2s ease;
+}
+.fb.ok{background:rgba(32,192,79,.09);border:1px solid rgba(32,192,79,.25);color:var(--green);}
+.fb.no{background:rgba(224,24,24,.09);border:1px solid rgba(224,24,24,.25);color:var(--red-light);}
+@keyframes fbin{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+.hidden{display:none!important;}
+
+.lg-ft{
+  display:flex;justify-content:center;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:9.5px;color:var(--text-muted);letter-spacing:1px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   MAIN PANEL (50% BRAND NEW LAYOUT & EXPERIENCE)
+   ══════════════════════════════════════════════════════════ */
+#mp{
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+  overflow:hidden;
+}
+
+/* Sleek Minimalist Topbar */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 18px;
+  background:rgba(7,7,14,.94);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px);
+  flex-shrink:0;z-index:20;
+}
+.tb-l{display:flex;align-items:center;gap:10px;}
+.tb-ico-wrap{
+  width:32px;height:32px;flex-shrink:0;
+  border-radius:9px;
+  background:linear-gradient(135deg,#200206,#0a0205);
+  border:1px solid rgba(224,24,24,.35);
+  display:flex;align-items:center;justify-content:center;
+}
+.tb-M{
+  font-family:'Black Ops One',cursive;
+  font-size:16px;color:#ff2828;line-height:1;
+}
+.tb-name{
+  font-family:var(--font-hud);font-size:12px;font-weight:800;
+  letter-spacing:1px;color:#fff;display:block;line-height:1.2;
+}
+.tb-sub{
+  font-family:var(--font-body);font-size:9.5px;color:var(--text-sub);
+  display:flex;align-items:center;gap:4px;font-weight:500;
+}
+.tb-ver-badge{
+  color:var(--red-light);font-family:var(--font-mono);font-size:8.5px;font-weight:700;
+}
+
+.tb-r{display:flex;align-items:center;gap:8px;}
+.sb{
+  display:flex;align-items:center;gap:5px;
+  padding:4px 9px;border-radius:20px;
+  font-family:var(--font-mono);font-size:9px;letter-spacing:.5px;
+  background:rgba(32,192,79,.08);border:1px solid rgba(32,192,79,.2);
+  color:var(--green);font-weight:600;
+}
+.sdot{
+  width:5px;height:5px;border-radius:50%;background:var(--green);
+  animation:sdot 1.8s ease infinite;flex-shrink:0;
+}
+@keyframes sdot{0%,100%{opacity:1;}50%{opacity:.3;}}
+.tb-ver{
+  font-family:var(--font-mono);font-size:8.5px;color:var(--text-sub);
+  background:rgba(255,255,255,.05);padding:3px 7px;border-radius:6px;
+  font-weight:600;
+}
+
+/* Scroll Container */
+.pscroll{
+  flex:1;overflow-y:auto;overflow-x:hidden;
+  padding:14px 16px 85px;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.pscroll::-webkit-scrollbar{display:none;}
+
+/* ── Section 1: DUAL TARGET ENGINE DECK (NEW EXPERIENCE) ── */
+.deck-label{
+  display:flex;align-items:center;justify-content:space-between;
+  margin:4px 0 10px;
+  font-family:var(--font-hud);font-size:9.5px;font-weight:700;
+  letter-spacing:1.5px;color:var(--text-sub);text-transform:uppercase;
+}
+.engine-deck{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-bottom:18px;
+}
+.lbtn{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 12px;
+  cursor:pointer;overflow:hidden;
+  transition:all .18s ease;
+  backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);
+  text-align:left;
+  -webkit-appearance:none;appearance:none;
+}
+.lbtn:active{transform:scale(.97);}
+.lbtn.sel{
+  background:rgba(28,14,18,.95);
+  border-color:rgba(224,24,24,.4);
+  box-shadow:0 4px 18px rgba(224,24,24,.15);
+}
+.lbtn-top{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:8px;
+}
+.lbtn-ico{
+  width:28px;height:28px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.04);
+}
+.lbtn.ff .lbtn-ico{background:rgba(224,24,24,.1);border:1px solid rgba(224,24,24,.25);}
+.lbtn.mx .lbtn-ico{background:rgba(255,122,0,.1);border:1px solid rgba(255,122,0,.25);}
+.lbtn-tag{
+  font-family:var(--font-mono);font-size:7.5px;letter-spacing:.5px;
+  padding:2px 6px;border-radius:4px;
+  background:rgba(255,255,255,.05);color:var(--text-muted);font-weight:600;
+}
+.lbtn.sel .lbtn-tag{
+  background:var(--red-soft);color:var(--red-light);border:1px solid rgba(224,24,24,.3);
+}
+.ln{
+  font-family:var(--font-hud);font-size:11px;font-weight:700;
+  letter-spacing:.5px;color:#fff;display:block;margin-bottom:2px;
+}
+.lbtn.ff .ln{color:#ff4d4d;}
+.lbtn.mx .ln{color:#ffa34d;}
+.pkg{
+  font-family:var(--font-mono);font-size:7.5px;color:var(--text-muted);
+  display:block;letter-spacing:.2px;
+}
+.lbtn-act{
+  margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--font-body);font-size:9.5px;font-weight:600;color:var(--text-sub);
+}
+.lbtn-act svg{width:11px;height:11px;}
+.lglow{display:none;}
+.ls{display:none;}
+
+/* ── Section 2: CATEGORY NAVIGATOR (NEW EXPERIENCE) ── */
+.cat-nav{
+  display:flex;align-items:center;gap:6px;
+  margin-bottom:12px;overflow-x:auto;
+  scrollbar-width:none;padding-bottom:2px;
+}
+.cat-nav::-webkit-scrollbar{display:none;}
+.cat-tab{
+  padding:6px 12px;border-radius:20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  font-family:var(--font-body);font-size:10px;font-weight:600;
+  color:var(--text-sub);cursor:pointer;white-space:nowrap;
+  transition:all .18s;flex-shrink:0;
+}
+.cat-tab.active{
+  background:var(--red-soft);border-color:rgba(224,24,24,.35);
+  color:#fff;box-shadow:0 0 10px rgba(224,24,24,.15);
+}
+
+/* Section Divider */
+.stit{display:none;}
+
+/* ── Section 3: FEATURE MODULES ── */
+.flist{display:flex;flex-direction:column;gap:8px;}
+.fi{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;padding:12px 14px;
+  cursor:pointer;position:relative;overflow:hidden;
+  transition:all .18s ease;
+}
+.fi:active{transform:scale(.985);}
+.fi.on{
+  background:var(--card-active);
+  border-color:rgba(224,24,24,.22);
+}
+.fi.hide-cat{display:none!important;}
+
+/* Clean Left Active Accent Bar */
+.fi::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:transparent;transition:background .2s;
+}
+.fi.on::before{background:var(--red);}
+
+/* Status Dot */
+.fi-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(255,255,255,.12);
+  flex-shrink:0;transition:all .2s;
+}
+.fi.on .fi-dot{
+  background:#ff3333;box-shadow:0 0 8px #ff3333;
+}
+
+.fi-info{flex:1;min-width:0;}
+.fi-name{
+  font-family:var(--font-hud);font-size:11px;font-weight:700;
+  letter-spacing:.3px;color:var(--text-main);
+  margin-bottom:2px;display:block;
+}
+.fi-desc{
+  font-family:var(--font-body);font-size:10.5px;color:var(--text-sub);
+  display:block;white-space:normal;line-height:1.3;font-weight:400;
+}
+.fi-badge{
+  font-family:var(--font-mono);font-size:7.5px;letter-spacing:.5px;
+  padding:2px 6px;border-radius:4px;
+  background:rgba(255,255,255,.04);color:var(--text-muted);
+  flex-shrink:0;align-self:flex-start;font-weight:600;
+  border:1px solid rgba(255,255,255,.05);
+}
+.fi.on .fi-badge{
+  color:var(--red-light);background:var(--red-soft);
+  border-color:rgba(224,24,24,.2);
+}
+
+/* ══════════════════════════════════════════════════════════
+   ⭐ THE REFINED ULTRA-PREMIUM TOGGLE SWITCH ⭐
+   Not "lebay" · Pure Understated Precision
+   ══════════════════════════════════════════════════════════ */
+.tog{
+  position:relative;
+  width:46px;height:26px;
+  flex-shrink:0;cursor:pointer;
+  display:inline-block;
+}
+.tog input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+
+/* Track */
+.tog-track{
+  position:absolute;inset:0;
+  border-radius:13px;
+  background:#0e0e18;
+  border:1px solid rgba(255,255,255,.09);
+  transition:all .26s cubic-bezier(.25,1,.5,1);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.7);
+}
+.tog input:checked ~ .tog-track{
+  background:#c71313;
+  border-color:#e01818;
+  box-shadow:0 2px 10px rgba(199,19,19,.4);
+}
+
+/* Precision Knob */
+.tog-knob{
+  position:absolute;top:3px;left:3px;
+  width:20px;height:20px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#242436 0%,#151522 100%);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 2px 5px rgba(0,0,0,.6);
+  transition:transform .28s cubic-bezier(.25,1,.5,1),background .2s,border-color .2s;
+  pointer-events:none;
+}
+.tog input:checked ~ .tog-knob{
+  transform:translateX(20px);
+  background:#ffffff;
+  border-color:#ffffff;
+  box-shadow:0 2px 6px rgba(0,0,0,.4);
+}
+
+/* ── Section 4: RUNTIME INJECTOR CONSOLE (NEW EXPERIENCE) ── */
+.inj-card{
+  margin-top:18px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+}
+.inj-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;
+  background:rgba(255,255,255,.015);
+  border-bottom:1px solid var(--border);
+}
+.inj-head-l{display:flex;align-items:center;gap:8px;}
+.inj-title{
+  font-family:var(--font-hud);font-size:10px;font-weight:700;
+  letter-spacing:1px;color:#fff;text-transform:uppercase;
+}
+.inj-badge{
+  font-family:var(--font-mono);font-size:8px;letter-spacing:1px;
+  padding:2px 7px;border-radius:4px;font-weight:600;
+  background:rgba(255,255,255,.05);color:var(--text-muted);
+}
+.inj-badge.run{
+  background:var(--red-soft);border:1px solid rgba(224,24,24,.3);
+  color:var(--red-light);animation:iblink .9s ease infinite;
+}
+.inj-badge.done{
+  background:var(--green-soft);border:1px solid rgba(32,192,79,.3);
+  color:var(--green);
+}
+@keyframes iblink{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+/* Drawer Toggle */
+.term-toggle{
+  background:none;border:none;color:var(--text-sub);
+  font-family:var(--font-mono);font-size:8.5px;letter-spacing:.5px;
+  cursor:pointer;display:flex;align-items:center;gap:4px;
+}
+.term-toggle:hover{color:#fff;}
+
+/* Terminal View */
+.inj-term{
+  background:#030308;
+  border-bottom:1px solid var(--border);
+  padding:12px 14px;
+  min-height:140px;max-height:190px;
+  overflow-y:auto;
+  font-family:var(--font-mono);font-size:10.5px;line-height:1.65;
+  scrollbar-width:none;
+}
+.inj-term.collapsed{display:none;}
+.inj-term::-webkit-scrollbar{display:none;}
+.tl{animation:tlin .08s ease;}
+.tl.init{color:var(--text-muted);}
+.tl.cmd{color:var(--green);font-weight:600;}
+.tl.data{color:var(--text-sub);}
+.tl.hex{color:#38bdf8;}
+.tl.warn{color:#fbbf24;}
+.tl.ok{color:var(--green);font-weight:700;}
+.tl.feat{color:var(--red-light);}
+.tl.sys{color:#94a3b8;}
+.tl.path{color:#818cf8;}
+@keyframes tlin{from{opacity:0;transform:translateX(-3px);}to{opacity:1;transform:none;}}
+
+.tcur{
+  display:inline-block;width:6px;height:12px;background:var(--red-light);
+  animation:tc 1s step-end infinite;vertical-align:text-bottom;margin-left:2px;
+}
+@keyframes tc{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* Control Bar */
+.inj-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;gap:12px;
+}
+.inj-tgt{
+  display:flex;flex-direction:column;gap:2px;
+  font-family:var(--font-mono);font-size:9.5px;min-width:0;
+}
+.inj-tgt-l{color:var(--text-muted);font-size:8px;letter-spacing:.5px;}
+.inj-tgt-v{
+  color:var(--red-light);font-weight:600;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.btn-inj{
+  padding:10px 18px;flex-shrink:0;
+  background:linear-gradient(180deg,#c71313 0%,#9e0b0b 100%);
+  border:1px solid rgba(255,255,255,.15);border-radius:10px;
+  color:#fff;font-family:var(--font-hud);font-size:9.5px;font-weight:700;
+  letter-spacing:1px;cursor:pointer;transition:transform .12s;
+  box-shadow:0 4px 14px rgba(199,19,19,.25);
+  -webkit-appearance:none;appearance:none;
+}
+.btn-inj:active{transform:scale(.96);}
+.btn-inj:disabled{opacity:.4;cursor:default;}
+
+.inj-pw{padding:0 14px 12px;display:flex;align-items:center;gap:10px;}
+.inj-pb{flex:1;height:3px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;}
+.inj-pf{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,#990000,#e01818);
+  border-radius:3px;transition:width .1s linear;
+}
+#injpct{font-family:var(--font-mono);font-size:9.5px;color:var(--red-light);font-weight:bold;width:32px;text-align:right;}
+
+/* ══════════════════════════════════════════════════════════
+   POPUP MODAL
+   ══════════════════════════════════════════════════════════ */
+.ov{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.8);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  z-index:200;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  animation:ovin .2s ease;
+}
+@keyframes ovin{from{opacity:0;}to{opacity:1;}}
+.popup{
+  width:100%;max-width:300px;
+  background:#0e0e18;
+  border:1px solid var(--border);
+  border-radius:18px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.85);
+  animation:popin .25s cubic-bezier(.16,1,.3,1);
+}
+@keyframes popin{from{transform:scale(.9) translateY(8px);opacity:0;}to{transform:none;opacity:1;}}
+.pop-ico{display:flex;align-items:center;justify-content:center;padding:24px 16px 8px;}
+.pop-ico svg{width:40px;height:40px;}
+.pop-ti{
+  font-family:var(--font-hud);font-size:12.5px;font-weight:700;
+  text-align:center;color:#fff;padding:4px 20px;letter-spacing:.5px;
+}
+.pop-msg{
+  font-family:var(--font-body);font-size:12px;color:var(--text-sub);
+  text-align:center;padding:6px 20px 20px;line-height:1.5;white-space:pre-line;
+}
+.pop-acts{display:flex;border-top:1px solid var(--border);}
+.pop-btn{
+  flex:1;padding:14px;background:none;border:none;
+  font-family:var(--font-body);font-size:13px;font-weight:600;
+  color:var(--text-sub);cursor:pointer;
+}
+.pop-btn:active{background:rgba(255,255,255,.05);}
+.pop-btn.ok{color:var(--red-light);border-left:1px solid var(--border);font-weight:700;}
+.pop-btn.solo{color:var(--red-light);font-weight:700;border:none;}
+
+/* ══════════════════════════════════════════════════════════
+   TOAST NOTIFICATION
+   ══════════════════════════════════════════════════════════ */
+#tc{
+  position:fixed;top:60px;left:50%;
+  transform:translateX(-50%);
+  z-index:300;
+  display:flex;flex-direction:column;gap:6px;
+  pointer-events:none;width:88%;max-width:330px;
+}
+.toast{
+  padding:12px 16px;border-radius:12px;
+  font-family:var(--font-body);font-size:11px;font-weight:600;
+  display:flex;align-items:center;gap:10px;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  animation:tin .25s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+.toast.out{animation:tout .22s ease forwards;}
+.toast.ts{background:rgba(8,24,14,.96);border:1px solid rgba(32,192,79,.3);color:var(--green);}
+.toast.te{background:rgba(24,6,8,.96);border:1px solid rgba(224,24,24,.3);color:var(--red-light);}
+.toast.ti{background:rgba(12,12,22,.96);border:1px solid var(--border);color:var(--text-main);}
+@keyframes tin{from{opacity:0;transform:translateY(-10px) scale(.95);}to{opacity:1;transform:none;}}
+@keyframes tout{to{opacity:0;transform:translateY(-6px);}}
+.tic{width:16px;height:16px;flex-shrink:0;}
+</style>
+</head>
+<body>
+
+<canvas id="cv"></canvas>
+<div class="scanlines"></div>
+
+<!-- ══════════════════════════════════════════
+     SPLASH SCREEN
+══════════════════════════════════════════ -->
+<div id="sp" class="scr on">
+  <div class="sp-wrap">
+    <div class="logo-stage">
+      <div class="lo-halo"></div>
+      <div class="lo-track t1"></div>
+      <div class="lo-track t2"></div>
+      <div class="lo-comet c1"></div>
+      <div class="lo-comet c2"></div>
+      <div class="lo-dia-arm"><div class="lo-diamond"></div></div>
+      <div class="lo-cross-arm"><div class="lo-cross"></div></div>
+      <div class="lo-badge"><span class="lo-M">M</span></div>
+    </div>
+    <div class="sp-name">MDZZXITERS</div>
+    <div class="sp-sub">INSANITY MAX</div>
+    <div class="sp-badge"><span class="dot"></span>V3.0 · ULTIMATE ENGINE</div>
+    <div class="sp-loader">
+      <div class="sp-track">
+        <div class="sp-fill" id="sp-fill"></div>
+        <div class="sp-shim"></div>
+      </div>
+      <div class="sp-meta">
+        <span id="sp-txt">INITIALIZING SYSTEM...</span>
+        <span id="sp-pct">0%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SPLASH SCRIPT ══ -->
+<script>
+(function(){
+  var STEPS=['INITIALIZING SYSTEM...','LOADING BYPASS MODULE...','CONNECTING TO SERVER...','VERIFYING LICENSE...','PATCHING MEMORY...','LOADING FEATURES...','READY.'];
+  var fill=document.getElementById('sp-fill');
+  var txt=document.getElementById('sp-txt');
+  var pct=document.getElementById('sp-pct');
+  var p=0,step=0;
+  var iv=setInterval(function(){
+    p=Math.min(100,p+(50/3200*100)+Math.random()*.3);
+    fill.style.width=p.toFixed(1)+'%';
+    pct.textContent=Math.floor(p)+'%';
+    var ns=Math.floor(p/100*STEPS.length);
+    if(ns>step&&ns<STEPS.length){step=ns;txt.textContent=STEPS[step];}
+    if(p>=100){
+      clearInterval(iv);
+      pct.textContent='100%';
+      txt.textContent='READY.';
+      setTimeout(function(){
+        if(window._fbAfterSplash){window._fbAfterSplash();return;}
+        var sp=document.getElementById('sp');
+        var lg=document.getElementById('lg');
+        sp.classList.add('out');
+        setTimeout(function(){sp.classList.remove('on','out');lg.classList.add('on');},380);
+      },700);
+    }
+  },50);
+})();
+</script>
+
+<!-- ══════════════════════════════════════════
+     LOGIN SCREEN
+══════════════════════════════════════════ -->
+<div id="lg" class="scr">
+  <div class="lg-wrap">
+    <div class="lg-hd">
+      <div class="lg-hd-ico"><span class="lg-hd-M">M</span></div>
+      <div>
+        <div class="lg-brand">MDZZXITERS</div>
+        <div class="lg-ver">INSANITY MAX V3.0 · AUTHENTICATION</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd">
+        <div class="card-hd-left">
+          <span class="card-ti">LICENSE VERIFICATION</span>
+        </div>
+        <div class="sec-pill">SECURED</div>
+      </div>
+      <div class="lg-body">
+        <div class="key-stage">
+          <div class="kw"></div>
+          <div class="kw"></div>
+          <svg class="key-ico" viewBox="0 0 48 48" fill="none">
+            <circle cx="18" cy="22" r="10" stroke="#ff3333" stroke-width="2"/>
+            <circle cx="18" cy="22" r="4.5" fill="rgba(255,51,51,.2)" stroke="#ff6666" stroke-width="1"/>
+            <line x1="26" y1="22" x2="44" y2="22" stroke="#ff3333" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="40" y1="22" x2="40" y2="28" stroke="#ff3333" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="35" y1="22" x2="35" y2="26" stroke="#ff3333" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <label class="inp-lbl">ENTER ACCESS KEY</label>
+        <div class="inp-row">
+          <input type="password" id="kinp" class="inp"
+            placeholder="XXXX-XXXX-XXXX" maxlength="24"
+            autocomplete="off" spellcheck="false"
+            autocorrect="off" autocapitalize="none"/>
+          <button class="eye-btn" onclick="toggleEye()">
+            <svg id="eyeico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        <button class="btn-vfy" id="vfybtn" onclick="doLogin()">
+          <span id="vfyt">VERIFY KEY</span>
+        </button>
+        <div id="fb" class="fb hidden"></div>
+      </div>
+    </div>
+
+    <div class="lg-ft">
+      <span>PANEL V3.0</span><span>·</span>
+      <span>HWID BOUND</span><span>·</span>
+      <span>1 KEY / 1 DEVICE</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MAIN PANEL (50% BRAND NEW LAYOUT)
+══════════════════════════════════════════ -->
+<div id="mp" class="scr">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="tb-l">
+      <div class="tb-ico-wrap"><span class="tb-M">M</span></div>
+      <div>
+        <span class="tb-name">MDZZXITERS</span>
+        <div class="tb-sub">
+          <span>INSANITY MAX</span>
+          <span class="tb-ver-badge">V3.0</span>
+        </div>
+      </div>
+    </div>
+    <div class="tb-r">
+      <div class="sb on"><span class="sdot"></span><span>ONLINE</span></div>
+      <div class="tb-ver" id="activePill">0/10</div>
+    </div>
+  </div>
+
+  <div class="pscroll">
+    <!-- Section 1: Interactive Target Engine Deck -->
+    <div class="deck-label">
+      <span>Target Engine</span>
+      <span style="color:var(--red-light);font-size:8.5px;" id="deckTgtStatus">SELECT GAME</span>
+    </div>
+    <div class="engine-deck">
+      <button class="lbtn ff" id="btnFF">
+        <div class="lbtn-top">
+          <div class="lbtn-ico">
+            <svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;">
+              <polygon points="12,2 22,7 22,17 12,22 2,17 2,7" stroke="#ff3333" stroke-width="1.8" fill="rgba(224,24,24,.12)" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="2.5" fill="#fff"/>
+            </svg>
+          </div>
+          <span class="lbtn-tag" id="tagFF">TARGET</span>
+        </div>
+        <span class="ln">FREE FIRE</span>
+        <span class="pkg">com.garena.game.fof</span>
+        <div class="lbtn-act">
+          <span>Launch &amp; Attach</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </button>
+
+      <button class="lbtn mx" id="btnFFMAX">
+        <div class="lbtn-top">
+          <div class="lbtn-ico">
+            <svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;">
+              <polygon points="12,2 22,7 22,17 12,22 2,17 2,7" stroke="#ff7a00" stroke-width="1.8" fill="rgba(255,122,0,.12)" stroke-linejoin="round"/>
+              <text x="12" y="15" fill="#ff7a00" font-size="7" font-family="Oxanium" font-weight="900" text-anchor="middle">MAX</text>
+            </svg>
+          </div>
+          <span class="lbtn-tag" id="tagFFMAX">TARGET</span>
+        </div>
+        <span class="ln">FREE FIRE MAX</span>
+        <span class="pkg">com.garena.game.ffmax</span>
+        <div class="lbtn-act">
+          <span>Launch &amp; Attach</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </button>
+    </div>
+
+    <!-- Section 2: Category Filter Bar -->
+    <div class="deck-label">
+      <span>Combat Modules</span>
+      <span style="color:var(--text-muted);font-size:8.5px;" id="featCounter">0 OF 10 ARMED</span>
+    </div>
+    <div class="cat-nav">
+      <button class="cat-tab active" onclick="filterCat('all',this)">All (10)</button>
+      <button class="cat-tab" onclick="filterCat('aim',this)">Aim &amp; Lock (4)</button>
+      <button class="cat-tab" onclick="filterCat('sens',this)">Sens &amp; Recoil (3)</button>
+      <button class="cat-tab" onclick="filterCat('sys',this)">System &amp; Bypass (3)</button>
+    </div>
+
+    <!-- Section 3: Feature Modules List -->
+    <div class="flist" id="flist"></div>
+
+    <!-- Section 4: Script Injector Console -->
+    <div class="inj-card">
+      <div class="inj-head">
+        <div class="inj-head-l">
+          <span class="inj-title">Runtime Injector</span>
+          <span class="inj-badge" id="injbadge">IDLE</span>
+        </div>
+        <button class="term-toggle" onclick="toggleTermDrawer()">
+          <span id="termToggleTxt">CONSOLE [ - ]</span>
+        </button>
+      </div>
+
+      <div class="inj-term" id="injterm">
+        <div class="tl init">&gt; MDZZXITERS INSANITY MAX V3.0</div>
+        <div class="tl init">&gt; Injector ready. Select game engine &amp; arm modules.</div>
+        <div class="tcur"></div>
+      </div>
+
+      <div class="inj-bar">
+        <div class="inj-tgt">
+          <span class="inj-tgt-l">TARGET PROCESS:</span>
+          <span class="inj-tgt-v" id="injtgt">NOT SELECTED</span>
+        </div>
+        <button class="btn-inj" id="injbtn" onclick="startInject()">EXECUTE INJECTION</button>
+      </div>
+
+      <div class="inj-pw hidden" id="injpw">
+        <div class="inj-pb"><div class="inj-pf" id="injfill"></div></div>
+        <span id="injpct">0%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     POPUP
+══════════════════════════════════════════ -->
+<div id="popov" class="ov hidden" onclick="closePopup()">
+  <div class="popup" onclick="event.stopPropagation()">
+    <div class="pop-ico" id="popico"></div>
+    <div class="pop-ti"  id="popti"></div>
+    <div class="pop-msg" id="popmsg"></div>
+    <div class="pop-acts" id="popacts"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TOAST
+══════════════════════════════════════════ -->
+<div id="tc"></div>
+
+<!-- ══════════════════════════════════════════
+     PRIMARY UI JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+(function(){
+"use strict";
+
+/* ── Prevent zoom / double-tap ── */
+document.addEventListener('gesturestart', function(e){e.preventDefault();},{passive:false});
+document.addEventListener('gesturechange',function(e){e.preventDefault();},{passive:false});
+document.addEventListener('gestureend',  function(e){e.preventDefault();},{passive:false});
+var lastTap=0;
+document.addEventListener('touchend',function(e){
+  var now=Date.now();if(now-lastTap<300){e.preventDefault();}lastTap=now;
+},{passive:false});
+
+/* ── Audio ── */
+var AC=null;
+function ensureAudio(){
+  if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)();}catch(e){return;}}
+  if(AC.state==='suspended'){AC.resume();}
+}
+window.ensureAudio=ensureAudio;
+function tone(f,tp,d,v){
+  if(!AC)return;
+  try{
+    var o=AC.createOscillator(),g=AC.createGain();
+    o.connect(g);g.connect(AC.destination);
+    o.type=tp||'sine';
+    o.frequency.setValueAtTime(f,AC.currentTime);
+    g.gain.setValueAtTime(0,AC.currentTime);
+    g.gain.linearRampToValueAtTime(v||.12,AC.currentTime+.006);
+    g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+(d||.12));
+    o.start(AC.currentTime);o.stop(AC.currentTime+(d||.12)+.02);
+  }catch(e){}
+}
+var SFX={
+  click:function(){ensureAudio();tone(800,'sine',.04,.06);},
+  on:function(){ensureAudio();[400,600].forEach(function(f,i){setTimeout(function(){tone(f,'sine',.08,.06);},i*32);});},
+  off:function(){ensureAudio();[600,400].forEach(function(f,i){setTimeout(function(){tone(f,'sine',.07,.05);},i*30);});},
+  ok:function(){
+    ensureAudio();
+    [520,650,780].forEach(function(f,i){setTimeout(function(){tone(f,'sine',.18,.07);},i*40);});
+  },
+  fail:function(){ensureAudio();[180,130].forEach(function(f,i){setTimeout(function(){tone(f,'sawtooth',.14,.12);},i*60);});},
+  injst:function(){
+    ensureAudio();
+    try{var o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);
+      o.type='sine';o.frequency.setValueAtTime(100,AC.currentTime);
+      o.frequency.linearRampToValueAtTime(450,AC.currentTime+.4);
+      g.gain.setValueAtTime(.08,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.4);
+      o.start(AC.currentTime);o.stop(AC.currentTime+.42);}catch(e){}
+  },
+  injdn:function(){ensureAudio();[320,480,640,800].forEach(function(f,i){setTimeout(function(){tone(f,'sine',.18,.07);},i*38);});},
+  pop:function(){ensureAudio();tone(500,'sine',.08,.06);},
+  cancel:function(){ensureAudio();tone(320,'sine',.07,.06);}
+};
+window.SFX=SFX;
+
+/* ── Canvas Particles ── */
+(function(){
+  var cv=document.getElementById('cv'),cx=cv.getContext('2d');
+  var W,H,ps=[],N=42,MD=130,SP=.25,DPR=Math.min(window.devicePixelRatio||1,2);
+
+  function rs(){
+    W=window.innerWidth;H=window.innerHeight;
+    cv.width=W*DPR;cv.height=H*DPR;
+    cv.style.width=W+'px';cv.style.height=H+'px';
+    cx.scale(DPR,DPR);
+  }
+
+  function initParticles(){
+    ps=[];
+    var cols=Math.ceil(Math.sqrt(N*W/H));
+    var rows=Math.ceil(N/cols);
+    var cw=W/cols,ch=H/rows;
+    for(var i=0;i<N;i++){
+      var col=i%cols,row=Math.floor(i/cols);
+      var p={};
+      p.x=col*cw+Math.random()*cw;
+      p.y=row*ch+Math.random()*ch;
+      p.vx=(Math.random()-.5)*SP;
+      p.vy=(Math.random()-.5)*SP;
+      p.r=Math.random()*.7+1.0;
+      p.op=Math.random()*.25+0.45;
+      p.ps=Math.random()*.008+.004;
+      p.po=Math.random()*Math.PI*2;
+      p.co=p.op;
+      ps.push(p);
+    }
+  }
+
+  rs();initParticles();
+
+  var t=0,raf;
+  function loop(){
+    raf=requestAnimationFrame(loop);
+    t++;
+    cx.clearRect(0,0,W,H);
+
+    cx.lineWidth=.7;
+    for(var i=0;i<N;i++){
+      for(var j=i+1;j<N;j++){
+        var dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y,
+            d2=dx*dx+dy*dy;
+        if(d2<MD*MD){
+          var a=(1-Math.sqrt(d2)/MD)*.35;
+          cx.strokeStyle='rgba(220,30,30,'+a.toFixed(3)+')';
+          cx.beginPath();
+          cx.moveTo(ps[i].x,ps[i].y);
+          cx.lineTo(ps[j].x,ps[j].y);
+          cx.stroke();
+        }
+      }
+    }
+
+    for(var i=0;i<N;i++){
+      var p=ps[i];
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;else if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;else if(p.y>H)p.y=0;
+      p.co=p.op*(.7+.3*Math.sin(t*p.ps+p.po));
+
+      cx.beginPath();
+      cx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      cx.fillStyle='rgba(240,40,40,'+p.co.toFixed(3)+')';
+      cx.fill();
+    }
+  }
+  loop();
+
+  window.addEventListener('resize',function(){
+    cancelAnimationFrame(raf);
+    rs();initParticles();
+    loop();
+  });
+})();
+
+/* ── Constants ── */
+var VALID_KEY='MDZZ-XITERS-2026';
+var PKG_FF='com.garena.game.fof';
+var PKG_MX='com.garena.game.ffmax';
+var STEPS=['INITIALIZING SYSTEM...','LOADING BYPASS MODULE...','CONNECTING TO SERVER...','VERIFYING LICENSE...','PATCHING MEMORY...','LOADING FEATURES...','READY.'];
+var FEATS=[
+  {id:'drag',  cat:'sens', name:'DragShot Config',   desc:'Calibrate drag acceleration curve for precision headshots', badge:'CONFIG', on:false, lib:'libil2cpp.so', sym:'SensitivityManager::SetDragShotProfile', off:'0x4A8C20', patch:'dragshot_multiplier=custom_profile aim_speed=18ms'},
+  {id:'assist',cat:'aim',  name:'Assist Head',       desc:'Adaptive target tracking favoring upper-body hitbox',       badge:'ASSIST', on:false, lib:'libil2cpp.so', sym:'AimAssistSystem::ComputeHeadTarget',      off:'0x5D3F88', patch:'head_bone_priority=0xFF predict_velocity=true'},
+  {id:'tweak', cat:'sens', name:'Tweak Config',      desc:'Dynamic sensitivity adjustment based on frame latency',    badge:'AUTO',   on:false, lib:'libil2cpp.so', sym:'GameSettings::AutoAdjustSensitivity',     off:'0x621B04', patch:'auto_sensi=adaptive_lut[device] gyro_correction=on'},
+  {id:'fps',   cat:'sys',  name:'FPS Booster',       desc:'Unlock display refresh limits & stabilize rendering clock', badge:'PERF',   on:false, lib:'libunity.so',  sym:'UnityPlayer::SetTargetFrameRate',          off:'0x2E9140', patch:'target_fps=90 vsync=0 lod_bias=0 shadow_dist=0'},
+  {id:'saim',  cat:'aim',  name:'Smooth Aim',        desc:'Natural interpolation for stealth aim alignment',          badge:'SMOOTH', on:false, lib:'libil2cpp.so', sym:'AimController::UpdateAimSmoothing',        off:'0x5B72AC', patch:'smooth_speed=0.04f lerp_override=true curve=EASE_OUT'},
+  {id:'ahead', cat:'aim',  name:'AimHead Settings',  desc:'Target weight bias focused on head vector points',          badge:'AIM',    on:false, lib:'libil2cpp.so', sym:'AimSystem::SetHeadTargetConfig',           off:'0x5C1E50', patch:'head_target_weight=1.0f hitzone_override=HEAD'},
+  {id:'recoil',cat:'sens', name:'Optimize Recoil',   desc:'Dampen weapon kickback spread pattern across all rifles',   badge:'RECOIL', on:false, lib:'libil2cpp.so', sym:'WeaponRecoilComponent::CalculateRecoil',   off:'0x7A5088', patch:'recoil_x=0.0f recoil_y=0.0f kick_scale=0'},
+  {id:'hlock', cat:'aim',  name:'Headlock 55%',      desc:'Semi-lock aim ratio within 8-degree FOV perimeter',         badge:'LOCK',   on:false, lib:'libil2cpp.so', sym:'AimLockSystem::SetHeadlockRatio',          off:'0x7F4430', patch:'headlock_ratio=0.55f snap_threshold=8deg'},
+  {id:'bypass',cat:'sys',  name:'Bypass Protection', desc:'Shield against server-side behavioral telemetry checks',   badge:'BYPASS', on:false, lib:'libmain.so',   sym:'IntegrityChecker::ValidateSession',         off:'0x1A3208', patch:'nop(3)@validate_session hwid_spoof=9B:2E:77'},
+  {id:'cache', cat:'sys',  name:'Cache Cleaner',     desc:'Flush shader cache & temporary game session dumps',         badge:'CLEAN',  on:false, lib:'filesystem',   sym:'/data/data/[pkg]/cache/',                   off:'N/A',      patch:'rm -rf cache/* dalvik-cache/* code_cache/*'},
+];
+
+var injBusy=false,selGame=null,selPkg=null;
+
+function gi(id){return document.getElementById(id);}
+
+/* ── Screen transitions ── */
+function goTo(fromId,toId){
+  var from=gi(fromId),to=gi(toId);
+  from.classList.add('out');
+  setTimeout(function(){
+    from.classList.remove('on','out');
+    to.classList.add('on');
+  },380);
+}
+
+/* ── Toast ── */
+var TIC={
+  s:'<svg class="tic" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#20c04f" stroke-width="1.8"/><path d="M6 10l3 3 5-5" stroke="#20c04f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  e:'<svg class="tic" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#ff3333" stroke-width="1.8"/><line x1="7" y1="7" x2="13" y2="13" stroke="#ff3333" stroke-width="2" stroke-linecap="round"/><line x1="13" y1="7" x2="7" y2="13" stroke="#ff3333" stroke-width="2" stroke-linecap="round"/></svg>',
+  i:'<svg class="tic" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#8e8ea6" stroke-width="1.8"/><line x1="10" y1="9" x2="10" y2="14" stroke="#8e8ea6" stroke-width="2" stroke-linecap="round"/><circle cx="10" cy="6.5" r="1" fill="#8e8ea6"/></svg>'
+};
+function toast(msg,type,ms){
+  type=type||'i';ms=ms||2400;
+  var c=gi('tc'),e=document.createElement('div');
+  e.className='toast t'+type;
+  e.innerHTML=(TIC[type]||TIC.i)+'<span>'+msg+'</span>';
+  c.appendChild(e);
+  setTimeout(function(){e.classList.add('out');setTimeout(function(){if(e.parentNode)e.parentNode.removeChild(e);},240);},ms);
+}
+window.toast=toast;
+
+/* ── Popup ── */
+var PIC={
+  warn:'<svg viewBox="0 0 44 44" fill="none"><polygon points="22,4 42,38 2,38" stroke="#fbbf24" stroke-width="2" fill="rgba(251,191,36,.1)" stroke-linejoin="round"/><line x1="22" y1="16" x2="22" y2="27" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/><circle cx="22" cy="32.5" r="1.8" fill="#fbbf24"/></svg>',
+  inj: '<svg viewBox="0 0 44 44" fill="none"><rect x="7" y="7" width="30" height="30" rx="8" stroke="#ff3333" stroke-width="2" fill="rgba(255,51,51,.08)"/><line x1="14" y1="22" x2="30" y2="22" stroke="#ff3333" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="14" x2="22" y2="30" stroke="#ff3333" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="22" r="3.5" fill="#ff3333"/></svg>',
+  game:'<svg viewBox="0 0 44 44" fill="none"><polygon points="22,3 41,13 41,31 22,41 3,31 3,13" stroke="#ff3333" stroke-width="2" fill="rgba(255,51,51,.08)"/><circle cx="22" cy="22" r="4" fill="#ff3333"/></svg>',
+  gamemx:'<svg viewBox="0 0 44 44" fill="none"><polygon points="22,3 41,13 41,31 22,41 3,31 3,13" stroke="#ff7a00" stroke-width="2" fill="rgba(255,122,0,.08)"/><text x="12" y="26" fill="#ff7a00" font-size="11" font-family="Oxanium" font-weight="900">MAX</text></svg>'
+};
+function showPopup(icoKey,ti,msg,btns){
+  SFX.pop();
+  gi('popico').innerHTML=PIC[icoKey]||PIC.warn;
+  gi('popti').textContent=ti;
+  gi('popmsg').textContent=msg;
+  var acts=gi('popacts');acts.innerHTML='';
+  for(var i=0;i<btns.length;i++){
+    (function(b,total){
+      var btn=document.createElement('button');
+      btn.className='pop-btn'+(b.ok?' ok':'')+(total===1?' solo':'');
+      btn.textContent=b.label;
+      btn.onclick=function(){SFX.cancel();gi('popov').classList.add('hidden');if(b.cb)b.cb();};
+      acts.appendChild(btn);
+    })(btns[i],btns.length);
+  }
+  gi('popov').classList.remove('hidden');
+}
+function closePopup(){SFX.cancel();gi('popov').classList.add('hidden');}
+window.closePopup=closePopup;
+
+/* ══ LOGIN ══ */
+function toggleEye(){
+  SFX.click();
+  var i=gi('kinp'),e=gi('eyeico');
+  if(i.type==='password'){
+    i.type='text';
+    e.innerHTML='<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>';
+  }else{
+    i.type='password';
+    e.innerHTML='<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
+}
+window.toggleEye=toggleEye;
+
+gi('kinp').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+
+function doLogin(){
+  ensureAudio();SFX.click();
+  var raw=gi('kinp').value.trim().toUpperCase();
+  var fb=gi('fb'),btn=gi('vfybtn'),bt=gi('vfyt');
+  btn.disabled=true;bt.textContent='VERIFYING...';
+  fb.className='fb hidden';
+  setTimeout(function(){
+    if(raw===VALID_KEY){
+      SFX.ok();
+      fb.textContent='ACCESS GRANTED — WELCOME';
+      fb.className='fb ok';
+      toast('ACCESS GRANTED','s',1800);
+      setTimeout(function(){goTo('lg','mp');buildFeats();},1100);
+    }else{
+      SFX.fail();
+      fb.textContent='INVALID KEY — ACCESS DENIED';
+      fb.className='fb no';
+      gi('kinp').style.cssText='border-color:#e01818;box-shadow:0 0 0 3px rgba(224,24,24,.18)';
+      toast('WRONG KEY — TRY AGAIN','e');
+      setTimeout(function(){gi('kinp').style.cssText='';},1600);
+      btn.disabled=false;bt.textContent='VERIFY KEY';
+    }
+  },880);
+}
+window.doLogin=doLogin;
+
+/* ══ CATEGORY FILTER & FEATURE LIST ══ */
+window.filterCat=function(cat,btn){
+  SFX.click();
+  var tabs=document.querySelectorAll('.cat-tab');
+  tabs.forEach(function(t){t.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+
+  var items=document.querySelectorAll('.fi');
+  items.forEach(function(el){
+    if(cat==='all'||el.getAttribute('data-cat')===cat){
+      el.classList.remove('hide-cat');
+    }else{
+      el.classList.add('hide-cat');
+    }
+  });
+};
+
+function updateCounters(){
+  var active=FEATS.filter(function(x){return x.on;}).length;
+  var pill=gi('activePill');if(pill)pill.textContent=active+'/'+FEATS.length;
+  var fcnt=gi('featCounter');if(fcnt)fcnt.textContent=active+' OF '+FEATS.length+' ARMED';
+}
+
+function buildFeats(){
+  var list=gi('flist');list.innerHTML='';
+  for(var i=0;i<FEATS.length;i++){
+    (function(f){
+      var d=document.createElement('div');
+      d.className='fi'+(f.on?' on':'');
+      d.id='fi-'+f.id;
+      d.setAttribute('data-cat',f.cat);
+      d.innerHTML=
+        '<div class="fi-dot"></div>'+
+        '<div class="fi-info">'+
+          '<span class="fi-name">'+f.name+'</span>'+
+          '<span class="fi-desc">'+f.desc+'</span>'+
+        '</div>'+
+        '<span class="fi-badge">'+f.badge+'</span>'+
+        '<label class="tog" onclick="event.stopPropagation()">'+
+          '<input type="checkbox" id="cb-'+f.id+'"'+(f.on?' checked':'')+'>'+
+          '<div class="tog-track"></div>'+
+          '<div class="tog-knob"></div>'+
+        '</label>';
+      d.addEventListener('click',function(){toggleFeat(f.id);});
+      d.querySelector('input').addEventListener('change',function(e){
+        e.stopPropagation();
+        toggleFeat(f.id,this.checked);
+      });
+      list.appendChild(d);
+    })(FEATS[i]);
+  }
+  updateCounters();
+}
+window.buildFeats=buildFeats;
+
+function toggleFeat(id,forced){
+  ensureAudio();
+  var f=null;
+  for(var i=0;i<FEATS.length;i++){if(FEATS[i].id===id){f=FEATS[i];break;}}
+  if(!f)return;
+  var ns=(forced!==undefined)?forced:!f.on;
+  f.on=ns;
+  var cb=gi('cb-'+id);if(cb)cb.checked=ns;
+  var item=gi('fi-'+id);
+  if(ns){
+    if(item)item.classList.add('on');
+    SFX.on();
+    toast(f.name+' — ENABLED','s',1400);
+    if(!selGame){selectTarget('FF');}
+  }else{
+    if(item)item.classList.remove('on');
+    SFX.off();
+    toast(f.name+' — DISABLED','i',1200);
+  }
+  updateCounters();
+}
+
+/* ── Target Selection Utility ── */
+function selectTarget(which){
+  var btnFF=gi('btnFF'),btnMX=gi('btnFFMAX'),
+      tagFF=gi('tagFF'),tagMX=gi('tagFFMAX'),
+      status=gi('deckTgtStatus');
+
+  if(which==='FF'){
+    selGame='FREE FIRE';selPkg=PKG_FF;
+    gi('injtgt').textContent=PKG_FF;
+    btnFF.classList.add('sel');btnMX.classList.remove('sel');
+    tagFF.textContent='ACTIVE';tagMX.textContent='TARGET';
+    if(status)status.textContent='FF ATTACHED';
+  }else{
+    selGame='FREE FIRE MAX';selPkg=PKG_MX;
+    gi('injtgt').textContent=PKG_MX;
+    btnMX.classList.add('sel');btnFF.classList.remove('sel');
+    tagMX.textContent='ACTIVE';tagFF.textContent='TARGET';
+    if(status)status.textContent='FF MAX ATTACHED';
+  }
+}
+
+/* ══ LAUNCH GAME ══ */
+gi('btnFF').addEventListener('click',function(){
+  ensureAudio();SFX.click();
+  selectTarget('FF');
+  var active=FEATS.filter(function(f){return f.on;});
+  if(!active.length){
+    showPopup('warn','FEATURE REQUIRED','Activate at least one module\nbefore launching the game.',[{label:'OK',ok:true,cb:null}]);
+    return;
+  }
+  showPopup('game','LAUNCH FREE FIRE',
+    'Opening Free Fire...\nEnsure injection is complete\nbefore entering match queue.',
+    [{label:'Cancel'},{label:'OPEN GAME',ok:true,cb:function(){
+      toast('Launching Free Fire...','i');
+      setTimeout(function(){window.location.href='freefire://';},900);
+    }}]);
+});
+
+gi('btnFFMAX').addEventListener('click',function(){
+  ensureAudio();SFX.click();
+  selectTarget('MX');
+  var active=FEATS.filter(function(f){return f.on;});
+  if(!active.length){
+    showPopup('warn','FEATURE REQUIRED','Activate at least one module\nbefore launching the game.',[{label:'OK',ok:true,cb:null}]);
+    return;
+  }
+  showPopup('gamemx','LAUNCH FREE FIRE MAX',
+    'Opening Free Fire MAX...\nEnsure injection is complete\nbefore entering match queue.',
+    [{label:'Cancel'},{label:'OPEN GAME',ok:true,cb:function(){
+      toast('Launching Free Fire MAX...','i');
+      setTimeout(function(){window.location.href='freefiremax://';},900);
+    }}]);
+});
+
+/* ══ TERMINAL DRAWER ══ */
+window.toggleTermDrawer=function(){
+  SFX.click();
+  var term=gi('injterm');
+  var txt=gi('termToggleTxt');
+  if(term.classList.contains('collapsed')){
+    term.classList.remove('collapsed');
+    txt.textContent='CONSOLE [ - ]';
+  }else{
+    term.classList.add('collapsed');
+    txt.textContent='CONSOLE [ + ]';
+  }
+};
+
+/* ══ INJECT ══ */
+function buildLines(pkg){
+  var active=FEATS.filter(function(f){return f.on;});
+  var base='/data/app/~~Ax7mRk/'+pkg+'-B3z/lib/arm64-v8a';
+  var lines=[
+    {c:'cmd', t:'> [*] mdzzxiters-inject V3.0'},
+    {c:'sys', t:'  target : '+pkg},
+    {c:'sys', t:'  arch   : arm64-v8a'},
+    {c:'cmd', t:'> [*] Scanning process PID table...'},
+    {c:'data',t:'  PID 8842 attached — '+pkg},
+    {c:'cmd', t:'> [*] Parsing memory maps...'},
+    {c:'path',t:'  '+base+'/libil2cpp.so → 0x70A800000000'},
+    {c:'path',t:'  '+base+'/libunity.so  → 0x70BC00000000'},
+    {c:'path',t:'  '+base+'/libmain.so   → 0x70CA00000000'},
+    {c:'cmd', t:'> [*] Allocating memory block (32KB)...'},
+    {c:'hex', t:'  alloc → 0xFFFF7A4B000000 [RWX]'},
+    {c:'cmd', t:'> [*] Applying integrity patch...'},
+    {c:'warn',t:'  [!] ACE telemetry spoofed (HWID 9B:2E:77)'},
+    {c:'cmd', t:'> [*] Hooking active modules ('+active.length+')...'}
+  ];
+
+  for(var i=0;i<active.length;i++){
+    var f=active[i];
+    var libPath=(f.lib==='filesystem')
+      ? '/data/data/'+pkg+'/cache/'
+      : base+'/'+f.lib;
+    lines.push({c:'feat',t:'  ['+(i+1)+'/'+active.length+'] '+f.name});
+    if(f.lib!=='filesystem'){
+      lines.push({c:'path',t:'  sym → '+f.sym});
+      lines.push({c:'hex', t:'  off → '+f.off+' | hook set'});
+    }
+  }
+
+  lines.push(
+    {c:'cmd', t:'> [*] Flushing instruction cache...'},
+    {c:'ok',  t:'> [SUCCESS] '+active.length+' module(s) deployed into '+pkg}
+  );
+  return lines;
+}
+
+function startInject(){
+  if(injBusy)return;ensureAudio();SFX.click();
+  var active=FEATS.filter(function(f){return f.on;});
+  if(!active.length){
+    showPopup('warn','NO MODULE ARMED','Arm at least one feature module\nbefore executing injection.',[{label:'OK',ok:true,cb:null}]);
+    return;
+  }
+  if(!selPkg){
+    showPopup('game','SELECT TARGET','Select Free Fire or Free Fire MAX\nfirst to set the target process.',[{label:'OK',ok:true,cb:null}]);
+    return;
+  }
+  showPopup('inj','CONFIRM INJECTION',
+    'Inject '+active.length+' module(s) into\n'+selPkg+'?',
+    [{label:'Cancel'},{label:'EXECUTE',ok:true,cb:runInject}]);
+}
+window.startInject=startInject;
+
+function runInject(){
+  injBusy=true;SFX.injst();
+  var term=gi('injterm'),badge=gi('injbadge'),
+      btn=gi('injbtn'),pw=gi('injpw'),
+      fill=gi('injfill'),pct=gi('injpct');
+
+  /* Ensure terminal is open when injecting */
+  term.classList.remove('collapsed');
+  gi('termToggleTxt').textContent='CONSOLE [ - ]';
+
+  term.innerHTML='<div class="tcur"></div>';
+  badge.textContent='RUNNING';badge.className='inj-badge run';
+  btn.disabled=true;pw.classList.remove('hidden');
+
+  var lines=buildLines(selPkg),idx=0;
+
+  function next(){
+    if(idx>=lines.length){
+      injBusy=false;
+      badge.textContent='DEPLOYED';badge.className='inj-badge done';
+      btn.disabled=false;
+      fill.style.width='100%';pct.textContent='100%';
+      SFX.injdn();toast('INJECTION COMPLETE','s',2800);
+      return;
+    }
+    var l=lines[idx];
+    var div=document.createElement('div');
+    div.className='tl '+l.c;div.textContent=l.t;
+    var cur=term.querySelector('.tcur');if(cur)cur.parentNode.removeChild(cur);
+    term.appendChild(div);
+    var nc=document.createElement('div');nc.className='tcur';term.appendChild(nc);
+    term.scrollTop=term.scrollHeight;
+    var p=Math.round((idx+1)/lines.length*100);
+    fill.style.width=p+'%';pct.textContent=p+'%';
+    idx++;
+    var delay=(l.c==='warn')?450:(l.c==='ok')?600:(l.c==='cmd')?180:(l.c==='feat')?220:80;
+    setTimeout(next,delay);
+  }
+  next();
+}
+
+})();
+</script>
+
+<!-- ══════ FIREBASE COMPAT SDK ══════ -->
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<!-- ══════ FIREBASE KEY SYSTEM ══════ -->
+<script>
+(function(){
+  /* ── Init ── */
+  var FB={
+    apiKey:"AIzaSyB2EZgrbnslC1tuyC0WtbIkA4SfJe5m2As",
+    authDomain:"mdzzxiters-panel-30d5a.firebaseapp.com",
+    projectId:"mdzzxiters-panel-30d5a",
+    storageBucket:"mdzzxiters-panel-30d5a.firebasestorage.app",
+    messagingSenderId:"515480722704",
+    appId:"1:515480722704:web:225d9105e3fea021125995"
+  };
+  firebase.initializeApp(FB);
+  var db=firebase.firestore();
+  firebase.auth().signInAnonymously().catch(function(){});
+
+  /* ── Device ID ── */
+  function getDevId(){
+    var id=localStorage.getItem('_mdz_did');
+    if(!id){id='dev_'+Date.now().toString(36)+'_'+Math.random().toString(36).substr(2,8);localStorage.setItem('_mdz_did',id);}
+    return id;
+  }
+  function getPlatform(){
+    var ua=navigator.userAgent;
+    if(/iPad|iPhone|iPod/.test(ua))return'iOS';
+    if(/Android/.test(ua))return'Android';
+    return'Browser';
+  }
+
+  /* ── Heartbeat every 30s ── */
+  var _hb=null;
+  function startHB(did){
+    if(_hb)clearInterval(_hb);
+    _hb=setInterval(function(){
+      db.collection('sessions').doc(did).set({
+        online:true,
+        lastSeen:firebase.firestore.FieldValue.serverTimestamp()
+      },{merge:true}).catch(function(){});
+    },30000);
+  }
+
+  /* ── Set offline on tab close ── */
+  window.addEventListener('beforeunload',function(){
+    var s=JSON.parse(localStorage.getItem('_mdz_sess')||'null');
+    if(s&&s.did){
+      db.collection('sessions').doc(s.did).set({
+        online:false,
+        lastSeen:firebase.firestore.FieldValue.serverTimestamp()
+      },{merge:true}).catch(function(){});
+    }
+  });
+
+  /* ── Helper: shortcut to getElementById ── */
+  function gi(id){return document.getElementById(id);}
+
+  /* ── After splash: check saved session ── */
+  window._fbAfterSplash=function(){
+    var s=JSON.parse(localStorage.getItem('_mdz_sess')||'null');
+    if(!s||!s.did||!s.keyId){
+      /* no saved session → show login */
+      var sp=gi('sp'),lg=gi('lg');
+      sp.classList.add('out');
+      setTimeout(function(){sp.classList.remove('on','out');lg.classList.add('on');},380);
+      return;
+    }
+    /* validate saved key still active & same device */
+    db.collection('keys').doc(s.keyId).get().then(function(snap){
+      if(snap.exists&&snap.data().active&&snap.data().deviceId===s.did){
+        /* still valid — go straight to panel */
+        db.collection('sessions').doc(s.did).set({
+          online:true,lastSeen:firebase.firestore.FieldValue.serverTimestamp()
+        },{merge:true}).catch(function(){});
+        startHB(s.did);
+        var sp=gi('sp'),mp=gi('mp');
+        sp.classList.add('out');
+        setTimeout(function(){
+          sp.classList.remove('on','out');
+          mp.classList.add('on');
+          if(window.buildFeats)window.buildFeats();
+        },380);
+      }else{
+        localStorage.removeItem('_mdz_sess');
+        var sp=gi('sp'),lg=gi('lg');
+        sp.classList.add('out');
+        setTimeout(function(){sp.classList.remove('on','out');lg.classList.add('on');},380);
+      }
+    }).catch(function(){
+      /* offline or error — show login */
+      var sp=gi('sp'),lg=gi('lg');
+      sp.classList.add('out');
+      setTimeout(function(){sp.classList.remove('on','out');lg.classList.add('on');},380);
+    });
+  };
+
+  /* ── Override doLogin with Firebase version ── */
+  window.doLogin=function(){
+    if(typeof ensureAudio==='function')ensureAudio();
+    var raw=gi('kinp').value.trim().toUpperCase();
+    var fb=gi('fb'),btn=gi('vfybtn'),bt=gi('vfyt');
+    btn.disabled=true;bt.textContent='VERIFYING...';
+    fb.className='fb hidden';
+
+    if(!raw||raw.length<6){
+      fb.textContent='INVALID KEY FORMAT';
+      fb.className='fb no';
+      btn.disabled=false;bt.textContent='VERIFY KEY';
+      return;
+    }
+
+    var did=getDevId();
+
+    db.collection('keys')
+      .where('key','==',raw)
+      .where('active','==',true)
+      .get()
+      .then(function(snap){
+        if(snap.empty){
+          /* key not found */
+          if(typeof SFX!=='undefined')SFX.fail();
+          fb.textContent='INVALID KEY — ACCESS DENIED';
+          fb.className='fb no';
+          gi('kinp').style.cssText='border-color:#e01212;box-shadow:0 0 0 3px rgba(224,18,18,.18)';
+          if(window.toast)window.toast('WRONG KEY — TRY AGAIN','e');
+          setTimeout(function(){gi('kinp').style.cssText='';},1600);
+          btn.disabled=false;bt.textContent='VERIFY KEY';
+          return;
+        }
+
+        var keyDoc=snap.docs[0];
+        var kd=keyDoc.data();
+
+        /* check device lock */
+        if(kd.used&&kd.deviceId&&kd.deviceId!==did){
+          if(typeof SFX!=='undefined')SFX.fail();
+          fb.textContent='KEY ALREADY USED ON ANOTHER DEVICE';
+          fb.className='fb no';
+          if(window.toast)window.toast('KEY LOCKED TO OTHER DEVICE','e',3000);
+          btn.disabled=false;bt.textContent='VERIFY KEY';
+          return;
+        }
+
+        /* claim key & create session */
+        keyDoc.ref.update({
+          used:true,
+          deviceId:did,
+          usedAt:firebase.firestore.FieldValue.serverTimestamp(),
+          lastSeen:firebase.firestore.FieldValue.serverTimestamp()
+        }).then(function(){
+          return db.collection('sessions').doc(did).set({
+            key:raw,
+            keyId:keyDoc.id,
+            deviceId:did,
+            online:true,
+            platform:getPlatform(),
+            ua:navigator.userAgent.substring(0,120),
+            lastSeen:firebase.firestore.FieldValue.serverTimestamp(),
+            createdAt:firebase.firestore.FieldValue.serverTimestamp()
+          },{merge:true});
+        }).then(function(){
+          localStorage.setItem('_mdz_sess',JSON.stringify({
+            key:raw,keyId:keyDoc.id,did:did
+          }));
+          startHB(did);
+          if(typeof SFX!=='undefined')SFX.ok();
+          fb.textContent='ACCESS GRANTED — WELCOME BACK';
+          fb.className='fb ok';
+          if(window.toast)window.toast('ACCESS GRANTED','s',1800);
+          setTimeout(function(){
+            var lg=gi('lg'),mp=gi('mp');
+            lg.classList.add('out');
+            setTimeout(function(){
+              lg.classList.remove('on','out');
+              mp.classList.add('on');
+              if(window.buildFeats)window.buildFeats();
+            },380);
+          },1100);
+        });
+      })
+      .catch(function(err){
+        console.error(err);
+        fb.textContent='CONNECTION ERROR — CHECK INTERNET';
+        fb.className='fb no';
+        if(window.toast)window.toast('CONNECTION ERROR','e');
+        btn.disabled=false;bt.textContent='VERIFY KEY';
+      });
+  };
+
+})();
+</script>
+</body>
+</html>

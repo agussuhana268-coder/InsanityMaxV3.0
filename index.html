@@ -1351,7 +1351,7 @@ window.filterCat=function(cat,btn){
 function updateCounters(){
   var active=FEATS.filter(function(x){return x.on;}).length;
   var pill=gi('activePill');if(pill)pill.textContent=active+'/'+FEATS.length;
-  var fcnt=gi('featCounter');if(fcnt)fcnt.textContent=active+' OF '+FEATS.length+' ARMED';
+  var fcnt=gi('featCounter');if(fcnt)fcnt.textContent=active+' OF '+FEATS.length+' MODULE';
 }
 
 function buildFeats(){
@@ -1520,7 +1520,7 @@ function startInject(){
   if(injBusy)return;ensureAudio();SFX.click();
   var active=FEATS.filter(function(f){return f.on;});
   if(!active.length){
-    showPopup('warn','NO MODULE ARMED','Arm at least one feature module\nbefore executing injection.',[{label:'OK',ok:true,cb:null}]);
+    showPopup('warn','NO MODULE ACTIVE','Arm at least one feature module\nbefore executing injection.',[{label:'OK',ok:true,cb:null}]);
     return;
   }
   if(!selPkg){
